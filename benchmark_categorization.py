@@ -116,13 +116,13 @@ def categorize(sample_success_rate, T_mean, sample_size=60 , T_limit=60, omega=0
     - (str): The category of the benchmark (unsolvable/unstable/stable/inconclusive).
     """
     # print()
-    print("sample_success_rate: ", sample_success_rate)
+    # print("sample_success_rate: ", sample_success_rate)
 
     # Check for solvability
     reject_solvable = unsolvability_test(sample_success_rate, sample_size)
     if reject_solvable:
-        print("unsolvable")
-        print()
+        # print("unsolvable")
+        # print()
         return "unsolvable"
     
     reject_unsolvable = solvability_test(sample_success_rate, sample_size)
@@ -133,22 +133,22 @@ def categorize(sample_success_rate, T_mean, sample_size=60 , T_limit=60, omega=0
 
     # Check for instability
     reject_instable = instability_test(sample_success_rate, sample_size)
-    print("T_mean " , T_mean)
+    # print("T_mean " , T_mean)
     
     # if reject_instable and T_mean < omega * T_limit:
     if reject_instable and T_mean < omega * T_limit:
         # print("reject_instable is True")
-        print("unstable")
-        print()
+        # print("unstable")
+        # print()
         return "unstable"
     
     # Check for stability
     reject_stable = stability_test(sample_success_rate, sample_size)
     if reject_stable:
-        print("stable")
-        print()
+        # print("stable")
+        # print()
         return "stable"
 
-    print("inconclusive")
-    print()
+    # print("inconclusive")
+    # print()
     return "inconclusive"

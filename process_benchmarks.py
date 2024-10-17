@@ -67,6 +67,9 @@ def process_benchmarks(dataframes):
         if category == "unstable":
             benchmark_name = dataframes[0].iloc[i]['benchmark']
             unstable_benchmarks.append(benchmark_name)
+            # print(f"Unstable benchmark: {benchmark_name}")
+            # print("Sample success rate:", sample_success_rate)
+            # print()
 
     return categories_count, unstable_benchmarks
 

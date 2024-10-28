@@ -58,6 +58,12 @@ def process_benchmarks(dataframes):
             if pd.notna(df.iloc[i]['total_time']) and isinstance(df.iloc[i]['total_time'], (int, float)):
                 if df.iloc[i]['status'] == 'ok':
                     total_times.append(df.iloc[i]['total_time'])
+
+        if len(total_times) == 0: # This benchmark is unsolvable
+            categories_count["unsolvable"] += 1
+            continue
+
+
         T_mean = np.mean(total_times)
         
         # Categorize benchmark
